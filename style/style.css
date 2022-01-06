@@ -1,0 +1,76 @@
+:root {
+    --color: #1CBF5C;
+    --bg-color: #eca306;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-color);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.line {
+    position: absolute;
+    height: 100%;
+    width: 0;
+    border: 10px outset #ffae00;
+    transform: translateX(-50%);
+}
+.line:nth-child(1) {
+    left: 33.3333%;
+}
+.line:nth-child(2) {
+    left: 66.6666%;
+}
+
+.circle-wrapper {
+    --dynX: 0deg;
+    --dynY: 0deg;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: min(calc(95vw - 40px), calc(95vh - 40px));
+    width: min(calc(95vw - 40px), calc(95vh - 40px));
+    border: 20px solid #1d1d1d;
+    outline: 20px solid var(--bg-color);
+    border-radius: 50%;
+    background-color: #E6FF5E;
+    overflow: hidden;
+}
+.circle-wrapper::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    inset: 0px;
+    background-image: radial-gradient(#E6FF5E00, 70%, #80a32d);
+}
+
+.circle-outline {
+    height: 100px;
+    width: 100px;
+    background-color: transparent;
+    border: 4px solid #090909;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.circle-moving {
+    --dynX: 0px;
+    --dynY: 0px;
+    height: 100px;
+    width: 100px;
+    background-color: rgba(14, 14, 14, 0.712);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(calc(-50% - var(--dynX)), calc(-50% - var(--dynY)));
+}
